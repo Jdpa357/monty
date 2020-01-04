@@ -22,6 +22,7 @@ void nofile_error(void)
  * Description: If for any reason, it's not possible to open the file, print
  * an error message to the standard output with the file name that failed to
  * open attached to it
+ * @argv: Argument vector
  * Return: Void function (No return)
  */
 
@@ -40,6 +41,8 @@ void openfile_error(char **argv)
  * Description: If the file contains an invalid instruction, prints an error
  * message to the standard output with the line number and the instruction
  * attached to it
+ * @invalidOp: Invalid operation argument
+ * @lineNum: Line number where the failed operation was found
  * Return: No return (Void function)
  */
 
