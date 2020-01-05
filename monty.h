@@ -66,6 +66,7 @@ void open_read(char *file);
 stack_t *exe_push(stack_t **stack, int value);
 void exe_pall(stack_t **stack, unsigned int ln);
 void exe_pint(stack_t **stack, unsigned int ln);
+void exe_pop(stack_t **stack, unsigned int ln);
 void nofile_error(void);
 void instruction_error(char *invalidOp, unsigned int lineNum);
 void liberation(stack_t **stack);

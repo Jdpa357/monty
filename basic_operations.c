@@ -66,9 +66,10 @@ void exe_pall(stack_t **stack, unsigned int ln)
 
 /**
  * exe_pint - Function that prints the value at the top of the stack
- * @stack: pointer to stack
- * @ln: line number
- * Return: Nothing, just print the top value
+ *
+ * @stack: Pointer to stack
+ * @ln: Line number
+ * Return: No return (Void function)
  */
 void exe_pint(stack_t **stack, unsigned int ln)
 {
@@ -87,3 +88,39 @@ void exe_pint(stack_t **stack, unsigned int ln)
 		dprintf(STDOUT_FILENO, "%d\n", tail->n);
 	}
 }
+
+/**
+ * exe_pop - Function that removes the top element of the stack
+ *
+ * @stack: Pointer to stack
+ * @ln: line number
+ * Return: No return (Void function)
+ */
+void exe_pop(stack_t **stack, unsigned int ln)
+{
+	stack_t *tail = *stack;
+
+	if (!tail)
+	{
+		dprintf(STDERR_FILENO, "L%d: can't pop an empty stack\n", ln);
+		close_program();
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
+		while (tail->next)
+			tail = tail->next;
+		if (!tail->prev)
+		{
+			free(tail);
+			*stack = NULL;
+		}
+		else
+		{
+			tail = tail->prev;
+			free(tail->next);
+			tail->next = NULL;
+		}
+	}
+}
+

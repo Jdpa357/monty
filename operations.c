@@ -13,6 +13,7 @@ void commands(stack_t **stack, char *op, unsigned int ln)
 	instruction_t instructs[] = {
 		{"pall", exe_pall},
 		{"pint", exe_pint},
+		{"pop", exe_pop},
 		{NULL, NULL}
 	};
 	if (!stack && ln == 400)
