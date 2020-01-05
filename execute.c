@@ -1,5 +1,11 @@
 #include "monty.h"
 
+buffers to_liberate = {
+	NULL,
+	NULL,
+	NULL
+};
+
 /**
  * open_read - Function in charge of opening and rading the given file
  *
@@ -24,22 +30,22 @@ void open_read(char *file)
 	}
 	else
 	{
-		r = getline(&to_liberate.line, &len, to_free.mf);
-		while (r != -1)
+		reader = getline(&to_liberate.line, &len, to_liberate.mf);
+		while (reader != -1)
 		{
 			op = strtok(to_liberate.line, " \n");
 			if (op)
 			{
 				if (strcmp(op, "push") == 0)
 				{
-					strval = strtok(NULL, " \n");
-					value = verify(strval, ln);
+					argVal = strtok(NULL, " \n");
+					value = verify(argVal, line);
 					exe_push(&to_liberate.head, value);
 				}
 				else if (op[0] != '#')
-					monty_commands(&to_liberate.head, op, ln);
+					monty_commands(&to_liberate.head, op, line);
 			}
-			ln++;
+			line++;
 			r = getline(&to_liberate.line, &len, to_liberate.mf);
 		}
 	}

@@ -16,25 +16,6 @@ void nofile_error(void)
 }
 
 /**
- * openfile_error - Function in charge of printing an error in case it is not
- * possible to open a file
- *
- * Description: If for any reason, it's not possible to open the file, print
- * an error message to the standard output with the file name that failed to
- * open attached to it
- * @argv: Argument vector
- * Return: Void function (No return)
- */
-
-void openfile_error(char **argv)
-{
-	char *name = argv[1];
-
-	fprintf(stderr, "Error: Can't open file %s\n", name);
-	exit(EXIT_FAILURE);
-}
-
-/**
  * instruction_error - Function that prints an error in case of a invalid
  * instruction passed to the program
  *
