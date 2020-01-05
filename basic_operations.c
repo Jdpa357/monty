@@ -63,3 +63,27 @@ void exe_pall(stack_t **stack, unsigned int ln)
 	if (ln > 1)
 		return;
 }
+
+/**
+ * exe_pint - Function that prints the value at the top of the stack
+ * @stack: pointer to stack
+ * @ln: line number
+ * Return: Nothing, just print the top value
+ */
+void exe_pint(stack_t **stack, unsigned int ln)
+{
+	stack_t *tail = *stack;
+
+	if (!tail)
+	{
+		dprintf(STDERR_FILENO, "L%d: can't pint, stack empty\n", ln);
+		close_program();
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
+		while (tail->next)
+			tail = tail->next;
+		dprintf(STDOUT_FILENO, "%d\n", tail->n);
+	}
+}
