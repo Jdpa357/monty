@@ -13,7 +13,10 @@
 int main(int argc, char **argv)
 {
 	if (argc != 2)
+	{
 		nofile_error();
-	open_read(argv);
+	}
+	else
+		open_read(argv[1]);
 	return (0);
 }

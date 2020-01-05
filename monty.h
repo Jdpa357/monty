@@ -42,13 +42,27 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void montyFile(char **argv);
-void montyInit(char *line, unsigned int line_number);
+/**
+ * struct buff - Structure for buffed to free the stack
+ *
+ * @mf: File
+ * @head: Pointer to the head of the stack
+ * @line: Line number
+ */
 
-/* Op Functions library */
-void pushStack(stack_t **stack, unsigned int line_number);
-void printStack(stack_t **stack, unsigned int line_number);
+typedef struct buff
+{
+	FILE *mf;
+	stack_t *head;
+	char *line;
+} buffers;
 
-void (*getOpcode(char *token))(stack_t **stack, unsigned int line_number);
+extern buffers to_liberate;
+
+/** Operations */
+void open_read(char *file);
+void nofile_error(void);
+void openfile_error(char **argv);
+void instruction_error(char *invalidOp, unsigned int lineNum);
 
 #endif
