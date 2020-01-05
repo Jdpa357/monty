@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "monty.h"
 
 /**
  * verify - Function to verify if a string is an integer

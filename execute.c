@@ -17,7 +17,7 @@ void open_read(char *file)
 {
 
 	ssize_t reader;
-	ssize_t len = 0;
+	size_t len = 0;
 	char *op = NULL, *argVal = NULL;
 	int value;
 	unsigned int line = 1;
@@ -46,7 +46,7 @@ void open_read(char *file)
 					commands(&to_liberate.head, op, line);
 			}
 			line++;
-			r = getline(&to_liberate.line, &len, to_liberate.mf);
+			reader = getline(&to_liberate.line, &len, to_liberate.mf);
 		}
 	}
 	close_program();
