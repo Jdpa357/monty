@@ -6,7 +6,7 @@
  * Description: Monty bytecodes files interpreter, function in charge of
  * executing other functions to carry on with execution processes
  * @argc: Argument counter
- - @argv: Argument vector
+ * @argv: Argument vector
  * Return: Always 0 (Success)
  */
 
