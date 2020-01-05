@@ -12,7 +12,7 @@ void commands(stack_t **stack, char *op, unsigned int ln)
 	int i = 0;
 	instruction_t instructs[] = {
 		{"pall", exe_pall},
-		{"pint", exe_pint},
+		/**{"pint", exe_pint},
 		{"pop", exe_pop},
 		{"swap", exe_swap},
 		{"add", exe_add},
@@ -20,7 +20,7 @@ void commands(stack_t **stack, char *op, unsigned int ln)
 		{"div", exe_div},
 		{"mul", exe_mul},
 		{"mod", exe_mod},
-		{"pchar", exe_pchar},
+		{"pchar", exe_pchar},*/
 		{NULL, NULL}
 	};
 	if (!stack && ln == 400)
