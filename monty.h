@@ -58,11 +58,17 @@ typedef struct buff
 } buffers;
 
 extern buffers to_liberate;
+void close_program(void);
 
 /** Operations */
 void open_read(char *file);
+stack_t *exe_push(stack_t **stack, int value);
+void exe_pall(stack_t **stack, unsigned int ln);
 void nofile_error(void);
-void openfile_error(char **argv);
 void instruction_error(char *invalidOp, unsigned int lineNum);
+void liberation(stack_t **stack);
+int verify(char *str, unsigned int ln);
+int isnum(char *str, unsigned int ln);
+void commands(stack_t **stack, char *op, unsigned int ln);
 
 #endif

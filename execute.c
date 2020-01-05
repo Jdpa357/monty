@@ -43,7 +43,7 @@ void open_read(char *file)
 					exe_push(&to_liberate.head, value);
 				}
 				else if (op[0] != '#')
-					monty_commands(&to_liberate.head, op, line);
+					commands(&to_liberate.head, op, line);
 			}
 			line++;
 			r = getline(&to_liberate.line, &len, to_liberate.mf);
