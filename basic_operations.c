@@ -124,3 +124,30 @@ void exe_pop(stack_t **stack, unsigned int ln)
 	}
 }
 
+/**
+ * exe_swap - Function that swaps the top two elements
+ *
+ * @stack: Pointer to stack
+ * @ln: Line number
+ * Return: No return (Void function)
+ */
+void exe_swap(stack_t **stack, unsigned int ln)
+{
+	stack_t *tail = *stack;
+	int tmp;
+
+	if (!tail || !tail->next)
+	{
+		dprintf(STDERR_FILENO, "L%d: can't swap, stack too short\n", ln);
+		close_program();
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
+		while (tail->next)
+			tail = tail->next;
+		tmp = tail->n;
+		tail->n = tail->prev->n;
+		tail->prev->n = tmp;
+	}
+}
