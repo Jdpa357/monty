@@ -151,3 +151,30 @@ void exe_swap(stack_t **stack, unsigned int ln)
 		tail->prev->n = tmp;
 	}
 }
+
+/**
+ * exe_add - Function that adds the top two elements
+ *
+ * @stack: Pointer to stack
+ * @ln: Line number
+ * Return: No return (Void function)
+ */
+void exe_add(stack_t **stack, unsigned int ln)
+{
+	stack_t *tail = *stack;
+
+	if (!tail || !tail->next)
+	{
+		dprintf(STDERR_FILENO, "L%d: can't add, stack too short\n", ln);
+		close_program();
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
+		while (tail->next->next)
+			tail = tail->next;
+		tail->n += tail->next->n;
+		exe_pop(stack, ln);
+	}
+
+}
