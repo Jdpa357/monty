@@ -16,6 +16,7 @@ void commands(stack_t **stack, char *op, unsigned int ln)
 		{"pop", exe_pop},
 		{"swap", exe_swap},
 		{"add", exe_add},
+		{"nop", exe_nop},
 		{NULL, NULL}
 	};
 	if (!stack && ln == 400)

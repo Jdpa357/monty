@@ -178,3 +178,16 @@ void exe_add(stack_t **stack, unsigned int ln)
 	}
 
 }
+
+/**
+ * exe_nop - Function that executes the nop code, doesn't do anything
+ *
+ * @stack: Pointer to the stack
+ * @ln: Line number
+ * Return: No return (Void function)
+ */
+void exe_nop(stack_t **stack, unsigned int ln)
+{
+	(void) stack;
+	(void) ln;
+}

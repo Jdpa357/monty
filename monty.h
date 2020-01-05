@@ -69,6 +69,7 @@ void exe_pint(stack_t **stack, unsigned int ln);
 void exe_pop(stack_t **stack, unsigned int ln);
 void exe_swap(stack_t **stack, unsigned int ln);
 void exe_add(stack_t **stack, unsigned int ln);
+void exe_nop(stack_t **stack, unsigned int ln);
 void nofile_error(void);
 void instruction_error(char *invalidOp, unsigned int lineNum);
 void liberation(stack_t **stack);
